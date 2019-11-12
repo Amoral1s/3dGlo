@@ -53,10 +53,14 @@ document.addEventListener('DOMContentLoaded', function () {
   menuBtn.addEventListener('click', toggleMenu);
   close.addEventListener('click', toggleMenu);
   menuItems.forEach((elem) => elem.addEventListener('click', toggleMenu));
+  popup.style.display = 'block';
+  popup.style.transform = 'translate(-100%, -100%)';
+  popup.style.transition = '1s';
   callPopup.forEach((elem) => elem.addEventListener('click', () => {
-    popup.style.display = 'block';
+    popup.style.transform = 'translate(0%, 0%)';
   }));
-  popupClose.addEventListener('click', () => popup.style.display = 'none');
+  popupClose.addEventListener('click', () => popup.style.transform = 'translate(-100%, -100%)');
+
       
   
 
