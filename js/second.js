@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     else if (dateGreet.getHours() >= 18 && dateGreet.getHours() < 24) {greet.textContent = "Добрый вечер!";} 
     else if (dateGreet.getHours() >=0 && dateGreet.getHours() <5) {greet.textContent = "Доброй ночи!";}
 
-
+  
     function getWeekDay(date) {
       let days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
     

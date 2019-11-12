@@ -76,7 +76,8 @@ body {
     -ms-flex-pack: center;
     justify-content: center;
     -webkit-transform: translateX(-100%);
-    transform: translateX(-100%); }
+    transform: translateX(-100%);
+    transition: 1s; }
   body .active-menu {
     -webkit-transition: 1s;
     transition: 1s;
