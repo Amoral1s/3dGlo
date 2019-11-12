@@ -45,23 +45,79 @@ document.addEventListener('DOMContentLoaded', function () {
         menu = document.querySelector('menu'),
         close = document.querySelector('.close-btn'),
         menuItems = menu.querySelectorAll('ul>li'),
-        callPopup = document.querySelectorAll('.popup-btn'),
-        popup = document.querySelector('.popup'),
-        popupClose = document.querySelector('.popup-close'),
-        toggleMenu = () => menu.classList.toggle('active-menu');
+        toggleMenu = () =>  menu.classList.toggle('active-menu');
+
+  menu.addEventListener('click', (event) => {
+    let target = event.target;
+    menuItems.forEach((elem) => elem.addEventListener('click', toggleMenu));
+
+    if(target.classList.contains('close-btn')) {
+      toggleMenu();
+    }
+  });
 
   menuBtn.addEventListener('click', toggleMenu);
-  close.addEventListener('click', toggleMenu);
-  menuItems.forEach((elem) => elem.addEventListener('click', toggleMenu));
-  popup.style.display = 'block';
-  popup.style.transform = 'translate(-100%, -100%)';
-  popup.style.transition = '1s';
-  callPopup.forEach((elem) => elem.addEventListener('click', () => {
-    popup.style.transform = 'translate(0%, 0%)';
-  }));
-  popupClose.addEventListener('click', () => popup.style.transform = 'translate(-100%, -100%)');
+ 
+  const togglePopup = () => {
+    const callPopup = document.querySelectorAll('.popup-btn'),
+          popup = document.querySelector('.popup');
 
-      
+    callPopup.forEach((elem) => {
+      elem.addEventListener('click', () => {
+        popup.style.display = 'block';
+      });
+    });
+
+    popup.addEventListener('click', (event) => {
+      let target = event.target;
+
+      if(target.classList.contains('popup-close')) {
+        popup.style.display = 'none';
+      } else {
+        target = target.closest('.popup-content');
+
+        if(!target) {
+          popup.style.display = 'none';
+        }
+      }
+    });
+        
+  };
+  togglePopup();
+
+  //табы
+
+  const tabs = () => {
+    const tabHeader = document.querySelector('.service-header'),
+          tab = tabHeader.querySelectorAll('.service-header-tab'),
+          tabContent = document.querySelectorAll('.service-tab');
+
+    const toggleContent = (index) => {
+      for (let i = 0; i < tabContent.length; i++) {
+        if (index === i) {
+          tab[i].classList.add('active');
+          tabContent[i].classList.remove('d-none');
+        } else {
+          tab[i].classList.remove('active');
+          tabContent[i].classList.add('d-none');
+        }
+      }
+    };
+    tabHeader.addEventListener('click', (event) => {
+      let target = event.target;
+          target = target.closest('.service-header-tab');
+  
+      if (target.classList.contains('service-header-tab')) {
+        tab.forEach((item, i) => {
+            if (item === target) {
+              toggleContent(i);
+            }
+        });
+      }
+    });
+  };
+
+  tabs();
   
 
 });
