@@ -280,9 +280,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (typeValue && squareValue) {
         total = price * typeValue * squareValue * countValue * dayValue;
-      } else {
-        total = 0;
-      }
+      } 
 
       totalValue.textContent = total;
     };
