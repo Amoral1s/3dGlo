@@ -7,6 +7,10 @@ const commandPhoto = () => {
       let target = event.target;
       target.src = target.dataset.img;
     });
+      elem.addEventListener('mouseout', () => {
+      let target = event.target;
+      target.src = target.dataset.img.replace(/a\./,'\.');
+    });
   });
 };
 
