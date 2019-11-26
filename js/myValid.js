@@ -17,7 +17,7 @@ class Validator {
   }
 
   isValid(elem) {
-
+    return true;
   }
 
   checkIt(event) {
@@ -33,6 +33,9 @@ class Validator {
   showError(elem){
     elem.classList.remove('success');
     elem.classList.add('error');
+    if(elem.nextElementSibling.classList.contains('validator-error')) {
+      return;
+    }
     const errorDiv = document.createElement('div');
     errorDiv.textContent = 'Ошибка в этом поле';
     errorDiv.classList.add('validator-error');
@@ -56,7 +59,7 @@ class Validator {
     input.error {
       border: 2px solid red
     }
-    validator-error {
+    .validator-error {
       font-size: 12px;
       color: red
 
