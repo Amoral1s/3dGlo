@@ -14,11 +14,11 @@ const myValid = () => {
       this.applyStyle();
       this.setPattern();
       this.elementsForm.forEach(elem => elem.addEventListener('change', this.checkIt.bind(this)));
-      this.form.addEventListener('submit', e => {
-        e.preventDefault();
+      this.form.addEventListener('submit', (event) => {
+        event.preventDefault();
         this.elementsForm.forEach(elem => this.checkIt({target: elem}));
-        if (this.error.size) {
-          e.preventDefault();
+        if (this.error.size > 0) {
+          event.preventDefault();
         }
       });
     }
@@ -59,8 +59,6 @@ const myValid = () => {
         this.showError(target);
         this.error.add(target);
       }
-      console.log(this.error);
-      
     }
     
     showError(elem) {

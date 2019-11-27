@@ -38,7 +38,7 @@ calcValid();
 // калькулятор
 calc(100);
 //отправка формы
+myValid();
 sendForm();
 sendFormPopup();
 sendFormFooter();
-myValid();
