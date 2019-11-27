@@ -1,9 +1,9 @@
-const sendForm = () => {
+const sendFormFooter = () => {
   const errorMessage = 'Что то пошло не так',
         loadMessage = 'Loading...',
         successmessage = 'Спасибо! Ваша заявка отправлена!';
 
-  const form = document.getElementById('form1');
+  const form = document.getElementById('form2');
 
   const statusMessage = document.createElement('div');
   
@@ -21,6 +21,7 @@ const sendForm = () => {
       if (request.status === 200) {
         statusMessage.textContent = successmessage;
         form.reset();
+
       } else {
         statusMessage.textContent = errorMessage;
       }
@@ -40,4 +41,4 @@ const sendForm = () => {
     
   });
 };
-export default sendForm;
+export default sendFormFooter;

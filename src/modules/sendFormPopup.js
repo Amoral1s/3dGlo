@@ -1,11 +1,12 @@
-const sendForm = () => {
+const sendFormPopup = () => {
   const errorMessage = 'Что то пошло не так',
         loadMessage = 'Loading...',
         successmessage = 'Спасибо! Ваша заявка отправлена!';
 
-  const form = document.getElementById('form1');
+  const form = document.getElementById('form3');
 
   const statusMessage = document.createElement('div');
+  statusMessage.style.color = '#fff';
   
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -21,6 +22,7 @@ const sendForm = () => {
       if (request.status === 200) {
         statusMessage.textContent = successmessage;
         form.reset();
+
       } else {
         statusMessage.textContent = errorMessage;
       }
@@ -40,4 +42,4 @@ const sendForm = () => {
     
   });
 };
-export default sendForm;
+export default sendFormPopup;

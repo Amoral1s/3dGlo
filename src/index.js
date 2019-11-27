@@ -17,6 +17,9 @@ import slider from './modules/slider';
 import calcValid from './modules/validCalc';
 import calc from './modules/calc';
 import sendForm from './modules/sendForm';
+import sendFormPopup from "./modules/sendFormPopup";
+import sendFormFooter from "./modules/sendFormFooter";
+import myValid from "./modules/formValid";
 
 //timer
 countTimer();
@@ -36,3 +39,6 @@ calcValid();
 calc(100);
 //отправка формы
 sendForm();
+sendFormPopup();
+sendFormFooter();
+myValid();
