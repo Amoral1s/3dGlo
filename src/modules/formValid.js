@@ -1,5 +1,5 @@
 const myValid = () => {
-  class Validator {
+  /* class Validator {
     constructor({selector, pattern = {}, method}) {
       this.form = document.querySelector(selector);
       this.pattern = pattern;
@@ -159,7 +159,7 @@ const myValid = () => {
       ]
     }
   });
-  valid3.init();
+  valid3.init(); */
 };
 
 export default myValid;
