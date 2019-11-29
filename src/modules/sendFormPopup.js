@@ -6,6 +6,7 @@ const sendFormPopup = () => {
   const form = document.getElementById('form3');
 
   const statusMessage = document.createElement('div');
+  
   class Validator {
     constructor({selector, pattern = {}, method}) {
       this.form = document.querySelector(selector);
@@ -28,6 +29,7 @@ const sendFormPopup = () => {
 
     const request = new XMLHttpRequest();
     request.addEventListener('readystatechange', () => {
+      
       statusMessage.textContent = loadMessage;
       event.preventDefault();
         
@@ -43,6 +45,14 @@ const sendFormPopup = () => {
         }
         statusMessage.textContent = successmessage;
         form.reset();
+        setTimeout(() => {
+          statusMessage.textContent = '';
+          let errDiv = document.querySelectorAll('.validator-error');
+          errDiv.forEach((elem) => {
+            elem.remove();
+          });
+
+        }, 3000);
       } else {
         this.elementsForm.forEach(elem => this.checkIt({target: elem}));
         if (this.error.size) {

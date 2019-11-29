@@ -1,3 +1,5 @@
+import { setTimeout } from "timers";
+
 const sendForm = () => {
   const errorMessage = 'Что то пошло не так',
         loadMessage = 'Loading...',
@@ -6,6 +8,26 @@ const sendForm = () => {
   const form = document.getElementById('form1');
 
   const statusMessage = document.createElement('div');
+  const validPhone = document.querySelectorAll('#phone');
+  const validName = document.querySelectorAll('#name');
+  const validTextArea = document.querySelectorAll('#form2-message');
+      console.log(validPhone);
+      
+      validPhone.forEach((elem) =>{
+        elem.addEventListener('keyup', () => {
+          elem.value = elem.value.replace(/[^\+()-\d]/g, '');
+        });
+      });
+      validName.forEach((elem) =>{
+        elem.addEventListener('keyup', () => {
+          elem.value = elem.value.replace(/[^а-я, ^А-Я]/,'');
+        });
+      });
+      validTextArea.forEach((elem) =>{
+        elem.addEventListener('keyup', () => {
+          elem.value = elem.value.replace(/[^а-я, ^А-Я]/,'');
+        });
+      });
   class Validator {
     constructor({selector, pattern = {}, method}) {
       this.form = document.querySelector(selector);
@@ -24,7 +46,7 @@ const sendForm = () => {
       this.form.addEventListener('submit', (event) => {
         event.preventDefault();
     form.appendChild(statusMessage);
-
+        
     const request = new XMLHttpRequest();
     request.addEventListener('readystatechange', () => {
       statusMessage.textContent = loadMessage;
@@ -42,11 +64,20 @@ const sendForm = () => {
         }
         statusMessage.textContent = successmessage;
         form.reset();
+        setTimeout(() => {
+          statusMessage.textContent = '';
+          let errDiv = document.querySelectorAll('.validator-error');
+          errDiv.forEach((elem) => {
+            elem.remove();
+          });
+
+        }, 3000);
       } else {
         this.elementsForm.forEach(elem => this.checkIt({target: elem}));
         if (this.error.size) {
           event.preventDefault();
           statusMessage.textContent = 'Заполните поля правильно!';
+          
           return;
         }
         statusMessage.textContent = errorMessage;
@@ -205,7 +236,10 @@ const sendForm = () => {
     }
   });
   valid3.init();
-  /* form.addEventListener('submit', (event) => {
+  
+};
+export default sendForm;
+/* form.addEventListener('submit', (event) => {
     event.preventDefault();
     form.appendChild(statusMessage);
 
@@ -237,5 +271,3 @@ const sendForm = () => {
 
     
   }); */
-};
-export default sendForm;

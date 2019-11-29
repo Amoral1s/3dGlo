@@ -43,6 +43,14 @@ const sendFormFooter = () => {
         }
         statusMessage.textContent = successmessage;
         form.reset();
+        setTimeout(() => {
+          statusMessage.textContent = '';
+          let errDiv = document.querySelectorAll('.validator-error');
+          errDiv.forEach((elem) => {
+            elem.remove();
+          });
+
+        }, 3000);
       } else {
         this.elementsForm.forEach(elem => this.checkIt({target: elem}));
         if (this.error.size) {
