@@ -4,12 +4,12 @@ const countTimer = (deadline) => {
         secondsTimer = document.querySelector('#timer-seconds');
 
   const getTimeRemaining = () => {
-    const dateStop = new Date('29 nov 2022').getTime(),
+    const dateStop = new Date('2 dec 2019').getTime(),
           dateNow = new Date().getTime(),
           timeRemaining = (dateStop - dateNow) / 1000,
           seconds = Math.floor(timeRemaining % 60),
           minutes = Math.floor((timeRemaining / 60) % 60),
-          hours = Math.floor(timeRemaining / 60 / 60) % 24;
+          hours = Math.floor(timeRemaining / 60 / 60);
     return {
       timeRemaining,
       hours,
