@@ -11,7 +11,6 @@ const sendForm = () => {
   const validPhone = document.querySelectorAll('#phone');
   const validName = document.querySelectorAll('#name');
   const validTextArea = document.querySelectorAll('#form2-message');
-      console.log(validPhone);
       
       validPhone.forEach((elem) =>{
         elem.addEventListener('keyup', () => {
@@ -200,42 +199,7 @@ const sendForm = () => {
     }
   });
   valid.init();
-  const valid2 = new Validator ({
-    selector: '#form2',
-    pattern: {
-      phone: /^\+?[78]([-()]*\d){10}$/,
-      email: /^\w+@\w+\.\w{2,}$/
-    },
-    method: {
-      'phone': [
-        ['notEmpty'],
-        ['pattern', 'phone']
-      ],
-      'email': [
-        ['notEmpty'],
-        ['pattern', 'email']
-      ]
-    }
-  });
-  valid2.init();
-  const valid3 = new Validator ({
-    selector: '#form3',
-    pattern: {
-      phone: /^\+?[78]([-()]*\d){10}$/,
-      email: /^\w+@\w+\.\w{2,}$/
-    },
-    method: {
-      'phone': [
-        ['notEmpty'],
-        ['pattern', 'phone']
-      ],
-      'email': [
-        ['notEmpty'],
-        ['pattern', 'email']
-      ]
-    }
-  });
-  valid3.init();
+  
   
 };
 export default sendForm;

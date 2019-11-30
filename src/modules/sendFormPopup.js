@@ -162,42 +162,7 @@ const sendFormPopup = () => {
     }
     
   }
-  const valid = new Validator ({
-    selector: '#form1',
-    pattern: {
-      phone: /^\+?[78]([-()]*\d){10}$/,
-      email: /^\w+@\w+\.\w{2,}$/
-    },
-    method: {
-      'phone': [
-        ['notEmpty'],
-        ['pattern', 'phone']
-      ],
-      'email': [
-        ['notEmpty'],
-        ['pattern', 'email']
-      ]
-    }
-  });
-  valid.init();
-  const valid2 = new Validator ({
-    selector: '#form2',
-    pattern: {
-      phone: /^\+?[78]([-()]*\d){10}$/,
-      email: /^\w+@\w+\.\w{2,}$/
-    },
-    method: {
-      'phone': [
-        ['notEmpty'],
-        ['pattern', 'phone']
-      ],
-      'email': [
-        ['notEmpty'],
-        ['pattern', 'email']
-      ]
-    }
-  });
-  valid2.init();
+  
   const valid3 = new Validator ({
     selector: '#form3',
     pattern: {
