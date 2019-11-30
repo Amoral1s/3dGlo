@@ -28,15 +28,19 @@ const calc = (price = 100) => {
 
     totalValue.textContent = total;
   };
-  
   calcBlock.addEventListener('keyup', (event) => {
     const target = event.target;
+    const itemCalc = document.querySelectorAll('.calc-item');
+    
     if (target.value.match(/[^0-9]|^0{1}/g)) {
       target.value = target.value.replace(/./g, '');
     }
     if(target.matches('select') || target.matches('input')) {
-      countSum();
+      if (calcType.value >= 1 && calcSquare.value > 0 && calcDay.value > 0 && calcCount.value > 0) {
+        countSum();
+      }
     }
+    
   });
 };
 
